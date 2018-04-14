@@ -7,6 +7,7 @@ var connection = mysql.createConnection({
     host: 'localhost',
     port: 3306,
     user: 'root',
+    password: 'banshee1',
     database: 'greatBayDB'
 });
 
@@ -15,13 +16,15 @@ connection.connect(function (err) {
     console.log(`Connected as id ${connection.threadId}`);
 });
 
-connection.query('SELECT * FROM', function (err, res) {
+connection.query('SELECT * FROM items', function (err, res) {
     if (err) console.log(err);
 
-    for (item of res) {
+    // for (item of res) {
 
-    }
+    // }
 })
+
+postItems();
 function postItems() {
 
     inquirer.prompt([
@@ -40,11 +43,11 @@ function postItems() {
             console.log("Your item is " + item.itemName);
             console.log("Your item costs: "+ item.price);
 
-            var query = connection.query("INSERT INTO greatBayDB SET ?", {
+            var query = connection.query("INSERT INTO items SET ?", {
                 item: item.itemName,
                 price: item.price
             }, function(err, res){
-                console.log(res.affectedRows + "item(s) inserted! \n");
+                console.log(res.affectedRows + " item(s) inserted! \n");
             });
             
             console.log(query.sql);
