@@ -10,16 +10,16 @@ var connection = mysql.createConnection({
     database: 'greatBayDB'
 });
 
-connection.connect(function(err){
+connection.connect(function (err) {
     if (err) throw err;
     console.log(`Connected as id ${connection.threadId}`);
 });
 
-connection.query('SELECT * FROM', function(err, res){
-    if (err) console.log (err);
+connection.query('SELECT * FROM', function (err, res) {
+    if (err) console.log(err);
 
-    for (item of res){
-        
+    for (item of res) {
+
     }
 })
 function postItems() {
@@ -35,13 +35,26 @@ function postItems() {
             name: "price",
             message: "What is this item's price?"
         }
-    ]).then(function(item) {
+    ]).then(function (item) {
         if (item.itemName) {
             console.log("Your item is " + item.itemName);
-            console.log("Your item costs: "+ item.price);
+            console.log("Your item costs: " + item.price);
         } else {
             console.log("Goodbye");
             return;
         }
+    })
+}
+
+function newBid() {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "bidAmount",
+            message: 'How much do you want to bid?'
+        }
+    ]).then(function (item) {
+        newBid = item.newBid;
+        console.log("Your bid is " + newBid);
     })
 }
