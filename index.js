@@ -38,7 +38,16 @@ function postItems() {
     ]).then(function (item) {
         if (item.itemName) {
             console.log("Your item is " + item.itemName);
-            console.log("Your item costs: " + item.price);
+            console.log("Your item costs: "+ item.price);
+
+            var query = connection.query("INSERT INTO greatBayDB SET ?", {
+                item: item.itemName,
+                price: item.price
+            }, function(err, res){
+                console.log(res.affectedRows + "item(s) inserted! \n");
+            });
+            
+            console.log(query.sql);
         } else {
             console.log("Goodbye");
             return;
