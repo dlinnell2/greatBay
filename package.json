@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/dlinnell2/greatBay/issues"
   },
-  "homepage": "https://github.com/dlinnell2/greatBay#readme"
+  "homepage": "https://github.com/dlinnell2/greatBay#readme",
+  "dependencies": {
+    "mysql": "^2.15.0"
+  }
 }
