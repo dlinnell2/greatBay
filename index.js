@@ -57,14 +57,6 @@ function selectItem(){
 
 };
 
-connection.query('SELECT * FROM items', function (err, res) {
-    if (err) console.log(err);
-
-    // for (item of res) {
-
-    // }
-})
-
 postItems();
 function postItems() {
 
