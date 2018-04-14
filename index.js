@@ -51,6 +51,7 @@ function postItems() {
             });
             
             console.log(query.sql);
+            readList();
         } else {
             console.log("Goodbye");
             return;
@@ -69,4 +70,13 @@ function newBid() {
         newBid = item.newBid;
         console.log("Your bid is " + newBid);
     })
+}
+
+function readList() {
+    console.log("Displaying all items .... \n");
+    connection.query("SELECT * FROM items", function(err, res) {
+        if (err) throw err;
+        console.log(res);
+        connection.end();
+    });
 }
