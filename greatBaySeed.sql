@@ -13,6 +13,14 @@ CREATE TABLE items (
 
 );
 
+CREATe TABLE users (
+
+id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(30) NOT NULL,
+password VARCHAR(30) NOT NULL
+);
+
+
 INSERT INTO items (item, price)
 VALUES ('Record Player', 250);
 
